@@ -18,7 +18,7 @@
 
 - name: "Parse remaining from and import statements"
   set_fact:
-    frimports: "{{ file['path']|frimports(frimports|default({}), builtins) }}"
+    frimports: "{{ file['path']|frimports(frimports|default({}), builtins, default_import_answer|default(omit)) }}"
 
 - name: Include the prompt for frimport
   include: handle_frimport.yml
